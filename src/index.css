@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "PilCrowRounded";
+  src: url("../public/Font/PilcrowRounded-Regular.woff") format("woff");
+}
+
+@import "tailwindcss";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --font-pilCrowRounded: "PilCrowRounded", sans-serif;
+}
