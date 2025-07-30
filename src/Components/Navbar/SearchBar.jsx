@@ -1,3 +1,4 @@
+import { HiMagnifyingGlass } from "react-icons/hi2";
 import { RiCloseLargeLine } from "react-icons/ri";
 
 const SearchBar = ({ style, currentState, onClose }) => {
@@ -14,6 +15,24 @@ const SearchBar = ({ style, currentState, onClose }) => {
         >
           <RiCloseLargeLine />
         </button>
+      </div>
+      <div>
+        <label
+          className="flex justify-center items-center mt-6"
+          htmlFor="search-input"
+        >
+          <span className="h-12 p-2 flex items-center justify-center text-2xl bg-purple-400 rounded-l-md">
+            <HiMagnifyingGlass />
+          </span>
+          <input
+            type="text"
+            className="border-none w-60 md:w-72 h-12 rounded-r-md bg-black dark:bg-white text-white dark:text-black p-2"
+          />
+        </label>
+      </div>
+      {/* Suggestions */}
+      <div className="border-2 w-full h-full mt-6 p-4">
+        suggestions will go here
       </div>
     </div>
   );

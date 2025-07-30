@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { PiMagnifyingGlassLight, PiShoppingCart } from "react-icons/pi";
 import SearchBar from "./SearchBar";
+import Menu from "./Menu";
 
 const Navbar = () => {
   const [toggleSearch, setToggleSearch] = useState(false);
@@ -14,6 +15,10 @@ const Navbar = () => {
         <p className="text-2xl font-pilCrowRounded font-semibold tracking-wider">
           BookVerse
         </p>
+        {/* menu */}
+        <div>
+          <Menu />
+        </div>
         {/* Other */}
         <div className="flex items-center justify-center gap-2">
           {/* Search */}
