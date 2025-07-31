@@ -25,14 +25,14 @@ const Menu = () => {
       ],
     },
   ];
+
   return (
     <div>
-      <ul className="flex space-x-4 font-pilCrowRounded tracking-wide text-base font-semibold">
-        {menuItems.map((item, index) => {
-          return (
+      <ul className="flex space-x-6 font-pilCrowRounded tracking-wide text-base font-semibold relative">
+        {menuItems.map((item, index) => (
+          <li key={index} className="relative group">
             <NavLink
               to={item.link}
-              key={index}
               className={({ isActive }) =>
                 `relative overflow-hidden group ${
                   isActive ? "text-purple-400" : ""
@@ -49,12 +49,36 @@ const Menu = () => {
                   ></span>
                 </>
               )}
-              {item?.subMenu && (
-                <ul>text</ul>
-              )}
             </NavLink>
-          );
-        })}
+            {/* submenu */}
+            {item?.subMenu && (
+              <ul className="absolute top-9 left-1/2 -translate-x-1/2 min-w-[200px] border-2 z-20 bg-white p-5 flex flex-col items-center justify-center space-y-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-in-out">
+                {item.subMenu.map((subItem, subIndex) => (
+                  <li key={subIndex}>
+                    <NavLink
+                      to={subItem.link}
+                      className={({ isActive }) =>
+                        `relative overflow-hidden group ${
+                          isActive ? "text-purple-400" : ""
+                        }`
+                      }
+                    >
+                      {({ isActive }) => (
+                        <span
+                          className={`block hover:text-purple-300 duration-400 ${
+                            isActive ? "text-purple-400" : ""
+                          }`}
+                        >
+                          {subItem.name}
+                        </span>
+                      )}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
       </ul>
     </div>
   );
