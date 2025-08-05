@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { PiMagnifyingGlassLight, PiShoppingCart } from "react-icons/pi";
 import SearchBar from "./SearchBar";
 import Menu from "./Menu";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { VscChromeClose } from "react-icons/vsc";
 import MobileMenu from "./MobileMenu";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
+import Context from "../../Context/Context";
 
 const Navbar = () => {
+  const { theme, setTheme } = useContext(Context);
   const [toggleSearch, setToggleSearch] = useState(false);
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
   const toggleSearchFunctions = () => {
@@ -14,6 +17,9 @@ const Navbar = () => {
   };
   const toggleMobileMenuFunctions = () => {
     setToggleMobileMenu(!toggleMobileMenu);
+  };
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
   return (
     <nav className="fixed top-0 left-0 z-50 w-full flex items-center justify-between p-2">
@@ -34,6 +40,14 @@ const Navbar = () => {
         </div>
         {/* Other */}
         <div className="flex items-center justify-center gap-2">
+          <div>
+            <button
+              onClick={toggleTheme}
+              className="text-xl z-30 text-black dark:text-white bg-white dark:bg-black p-1.5 rounded-full"
+            >
+              {theme === "light" ? <MdDarkMode /> : <MdLightMode />}
+            </button>
+          </div>
           {/* Search */}
           <div>
             <button

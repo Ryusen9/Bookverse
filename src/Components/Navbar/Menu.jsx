@@ -52,7 +52,7 @@ const Menu = () => {
             </NavLink>
             {/* submenu */}
             {item?.subMenu && (
-              <ul className="absolute top-9 left-1/2 -translate-x-1/2 min-w-[200px] border-2 z-20 bg-white p-5 flex flex-col items-center justify-center space-y-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-in-out">
+              <ul className="absolute rounded-b-lg top-8 left-1/2 -translate-x-1/2 min-w-[200px] z-20 bg-black text-white dark:bg-white dark:text-black p-5 flex flex-col items-center justify-center space-y-2 transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-in-out">
                 {item.subMenu.map((subItem, subIndex) => (
                   <li key={subIndex}>
                     <NavLink
